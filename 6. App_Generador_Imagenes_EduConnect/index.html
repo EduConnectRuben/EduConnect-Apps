@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador Prompts Imágenes | EduConnectRuben</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Link para instalar a pantalla -->
+    <link rel="manifest" href="instalar/manifest.json">
+</head>
+<body class="dark-theme">
+
+    <div class="app-container">
+        <div class="header">
+            <div class="title-container">
+                <h1 style="color: var(--cyan-neon); font-size: 2.2rem; font-weight: 900; margin-bottom: 0.5rem; text-align: center;">EduConnectRuben</h1>
+                <p style="text-align: center; color: var(--text-muted); font-size: 1.1rem; letter-spacing: 1px;">Generador de Prompts 3D para Imágenes Radiales</p>
+            </div>
+        </div>
+        
+        <div class="form-content">
+            <div class="form-group">
+                <label for="categoria">1. Selecciona la Categoría de la Imagen:</label>
+                <select id="categoria" onchange="cargarSubcategorias()">
+                    <option value="">-- Elige una Categoría --</option>
+                    <option value="carreras">🎓 Imágenes de las 5 Carreras</option>
+                    <option value="institucionales">🏛️ Imágenes de Videos Institucionales</option>
+                    <option value="tutoriales">💻 Imágenes de Videos Tutoriales</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="subcategoria">2. Selecciona el Tema Específico:</label>
+                <select id="subcategoria" disabled>
+                    <option value="">-- Primero elige una Categoría --</option>
+                </select>
+            </div>
+
+            <div class="button-group" style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+                <button class="btn-generate btn-gemini" onclick="generarPromptImagenRadial('radial')" style="background-color: #0ea5e9;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="2"/><line x1="12" y1="2" x2="12" y2="12"/><line x1="12" y1="12" x2="12" y2="22"/><line x1="2" y1="12" x2="12" y2="12"/><line x1="12" y1="12" x2="22" y2="12"/></svg>
+                    1. Diseño Clásico: Radial 3D Cibernético
+                </button>
+                <button class="btn-generate btn-gemini" onclick="generarPromptImagenRadial('brutal')" style="background-color: #f43f5e; box-shadow: 0 4px 15px rgba(244, 63, 94, 0.4);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    2. Diseño Espectacular: Holograma 3D Antigravedad
+                </button>
+                <button class="btn-generate btn-gemini" onclick="generarPromptImagenRadial('isometrico')" style="background-color: #8b5cf6; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    3. Diseño Épico: Portal Cibernético Cyberpunk
+                </button>
+            </div>
+            
+            <div style="margin-top: 2rem; background: rgba(14, 165, 233, 0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--cyan-neon);">
+                <p style="color: var(--cyan-neon); font-weight: bold; margin-bottom: 0.5rem;">📌 Instrucciones:</p>
+                <p style="color: var(--text-light); font-size: 0.9rem; line-height: 1.6;">Selecciona la imagen que necesitas y presiona el botón. Se copiará al portapapeles un texto especializado (Prompt). Ve a <a href="https://gemini.google.com/" target="_blank" style="color: var(--cyan-neon);">Gemini</a> o Midjourney, pega el texto, y la IA dibujará tu imagen con el estilo tecnológico central rodeado de íconos.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <span id="toast-text">¡Prompt copiado al portapapeles!</span>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- script para instalar a pantalla -->
+    <script src="instalar/pwa.js"></script>
+</body>
+</html>

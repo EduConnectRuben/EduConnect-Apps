@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduConnect - Centro de Comando de Prompts</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Link para instalar a pantalla -->
+    <link rel="manifest" href="instalar/manifest.json">
+</head>
+<body>
+    <div class="background-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <main class="glass-container">
+        <header>
+            <img src="images/logo.png" alt="EduConnect Logo" class="app-logo">
+            <h1>EduConnect<span>Ruben</span></h1>
+            <p>Centro de Comando de Prompts IA para NotebookLM</p>
+        </header>
+
+        <section class="controls">
+            <div class="input-group">
+                <label for="carrera-select">Carrera</label>
+                <select id="carrera-select">
+                    <option value="">Selecciona una carrera...</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="nivel-select">Nivel</label>
+                <select id="nivel-select" disabled>
+                    <option value="">Selecciona un nivel...</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="modulo-select">Módulo</label>
+                <select id="modulo-select" disabled>
+                    <option value="">Selecciona un módulo...</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="prompts-section">
+            <div class="tabs">
+                <button class="tab-btn active" data-target="prompt-diapositivas">🖥️ Diapositivas</button>
+                <button class="tab-btn" data-target="prompt-audio">🎧 Audio</button>
+                <button class="tab-btn" data-target="prompt-video">🎬 Video</button>
+                <button class="tab-btn" data-target="prompt-mapa">🚀 Mapa Mental</button>
+                <button class="tab-btn" data-target="prompt-tarjetas">🗂️ Tarjetas</button>
+                <button class="tab-btn" data-target="prompt-cuestionario">📝 Cuestionario</button>
+            </div>
+
+            <div class="tab-content active" id="prompt-diapositivas">
+                <div class="prompt-header">
+                    <h3>Diapositivas del Presentador (Dinámico)</h3>
+                    <button class="copy-btn" data-target="text-diapositivas">Copiar en 1 clic</button>
+                </div>
+                <div class="prompt-body" id="text-diapositivas">
+                    Selecciona una Carrera, Nivel y Módulo para generar este prompt.
+                </div>
+            </div>
+
+            <div class="tab-content" id="prompt-audio">
+                <div class="prompt-header">
+                    <h3>Resumen de Audio / Podcast (Universal)</h3>
+                    <button class="copy-btn" data-target="text-audio">Copiar en 1 clic</button>
+                </div>
+                <div class="prompt-body" id="text-audio"></div>
+            </div>
+
+            <div class="tab-content" id="prompt-video">
+                <div class="prompt-header">
+                    <h3>Resumen de Video (Universal)</h3>
+                    <button class="copy-btn" data-target="text-video">Copiar en 1 clic</button>
+                </div>
+                <div class="prompt-body" id="text-video"></div>
+            </div>
+
+            <div class="tab-content" id="prompt-mapa">
+                <div class="prompt-header">
+                    <h3>Mapa Mental (Universal)</h3>
+                    <button class="copy-btn" data-target="text-mapa">Copiar en 1 clic</button>
+                </div>
+                <div class="prompt-body" id="text-mapa"></div>
+            </div>
+
+            <div class="tab-content" id="prompt-tarjetas">
+                <div class="prompt-header">
+                    <h3>Tarjetas Didácticas (Universal)</h3>
+                    <button class="copy-btn" data-target="text-tarjetas">Copiar en 1 clic</button>
+                </div>
+                <div class="prompt-body" id="text-tarjetas"></div>
+            </div>
+
+            <div class="tab-content" id="prompt-cuestionario">
+                <div class="prompt-header">
+                    <h3>Cuestionario (Universal)</h3>
+                    <button class="copy-btn" data-target="text-cuestionario">Copiar en 1 clic</button>
+                </div>
+                <div class="prompt-body" id="text-cuestionario"></div>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast" class="toast">¡Copiado al portapapeles!</div>
+
+    <script src="app.js"></script>
+    <!-- script para instalar a pantalla -->
+    <script src="instalar/pwa.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador Curricular | EduConnectRuben</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Link para instalar a pantalla -->
+    <link rel="manifest" href="instalar/manifest.json">
+</head>
+<body>
+
+    <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Cambiar Tema">
+        <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+        </svg>
+    </button>
+
+
+    <div class="app-container">
+        <div class="header">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="Logo EduConnectRuben" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%22120%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%230ea5e9%22 stroke-width=%221.5%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z%22%3E%3C/path%3E%3Cpath d=%22M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z%22%3E%3C/path%3E%3C/svg%3E'; this.style.backgroundColor='transparent'; this.style.boxShadow='none';">
+            </div>
+            <div class="title-container">
+                <h1>EduConnectRuben</h1>
+            <p>EXPERTO EN CONEXIÓN DE REDES DOMICILIARIAS, WISP Y CCTV</p>
+            </div>
+        </div>
+        
+        
+        
+        <div class="form-content">
+            <div class="form-group">
+                <label for="nivel">1. Selecciona el Nivel Académico:</label>
+                <select id="nivel">
+                    <option value="">-- Elige un Nivel --</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="modulo">2. Selecciona el Módulo:</label>
+                <select id="modulo" disabled>
+                    <option value="">-- Primero elige un Nivel --</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="tema">3. Selecciona el Tema a Generar:</label>
+                <select id="tema" disabled>
+                    <option value="">-- Primero elige un Módulo --</option>
+                </select>
+            </div>
+
+            <div class="button-group">
+                <button class="btn-generate btn-gemini" onclick="generarPrompt('gemini')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+                    Generar Tema en Gemini
+                </button>
+                <button class="btn-generate btn-image-gemini" onclick="generarPromptImagen('gemini')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    Imagen de Tema (Infografía)
+                </button>
+                <button class="btn-generate btn-image-gemini" style="background-color: #f59e0b; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.5);" onmouseover="this.style.boxShadow='0 8px 25px rgba(245, 158, 11, 0.7)'; this.style.transform='translateY(-3px) scale(1.02)';" onmouseout="this.style.boxShadow='0 4px 15px rgba(245, 158, 11, 0.5)'; this.style.transform='translateY(0) scale(1)';" onclick="generarPromptImagenModulo(1)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    Imagen 1 del Módulo
+                </button>
+                <button class="btn-generate btn-image-gemini" style="background-color: #ec4899; box-shadow: 0 4px 15px rgba(236, 72, 153, 0.5);" onmouseover="this.style.boxShadow='0 8px 25px rgba(236, 72, 153, 0.7)'; this.style.transform='translateY(-3px) scale(1.02)';" onmouseout="this.style.boxShadow='0 4px 15px rgba(236, 72, 153, 0.5)'; this.style.transform='translateY(0) scale(1)';" onclick="generarPromptImagenModulo(2)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    Imagen 2 del Módulo
+                </button>
+            </div>
+
+            <div class="planning-section" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.1);">
+                <label style="display: block; margin-bottom: 10px; font-weight: 500; color: var(--cyan-neon); font-size: 0.9rem; letter-spacing: 0.5px;">Herramientas de Planificación Docente:</label>
+                <div class="button-group" style="margin-top: 10px; gap: 8px;">
+                    <button class="btn-generate btn-action" style="background-color: #0f766e; box-shadow: 0 4px 15px rgba(15, 118, 110, 0.5);" onmouseover="this.style.boxShadow='0 8px 25px rgba(15, 118, 110, 0.7)'; this.style.transform='translateY(-3px) scale(1.02)';" onmouseout="this.style.boxShadow='0 4px 15px rgba(15, 118, 110, 0.5)'; this.style.transform='translateY(0) scale(1)';" onclick="generarPlanGeneral()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                        Plan General
+                    </button>
+                    <button class="btn-generate btn-action" style="background-color: #059669; box-shadow: 0 4px 15px rgba(5, 150, 105, 0.5);" onmouseover="this.style.boxShadow='0 8px 25px rgba(5, 150, 105, 0.7)'; this.style.transform='translateY(-3px) scale(1.02)';" onmouseout="this.style.boxShadow='0 4px 15px rgba(5, 150, 105, 0.5)'; this.style.transform='translateY(0) scale(1)';" onclick="generarPlanModular()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        Plan Módulo
+                    </button>
+                    <button class="btn-generate btn-action" style="background-color: #10b981; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.5);" onmouseover="this.style.boxShadow='0 8px 25px rgba(16, 185, 129, 0.7)'; this.style.transform='translateY(-3px) scale(1.02)';" onmouseout="this.style.boxShadow='0 4px 15px rgba(16, 185, 129, 0.5)'; this.style.transform='translateY(0) scale(1)';" onclick="generarPlanTema()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        Plan Tema
+                    </button>
+                    <button class="btn-generate btn-action" style="background-color: #14b8a6; box-shadow: 0 4px 15px rgba(20, 184, 166, 0.5);" onmouseover="this.style.boxShadow='0 8px 25px rgba(20, 184, 166, 0.7)'; this.style.transform='translateY(-3px) scale(1.02)';" onmouseout="this.style.boxShadow='0 4px 15px rgba(20, 184, 166, 0.5)'; this.style.transform='translateY(0) scale(1)';" onclick="generarPlanEvaluacion()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        Plan Rúbrica
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <span id="toast-text">¡Prompt copiado!</span>
+    </div>
+
+        <script src="script.js"></script>
+    <!-- script para instalar a pantalla -->
+    <script src="instalar/pwa.js"></script>
+</body>
+</html>
