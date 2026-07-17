@@ -71,78 +71,60 @@ function formatText(text) {
 
 // Prompts estáticos
 const PROMPT_AUDIO = `Actúen como presentadores expertos en tecnología y generen un análisis de audio extenso, profundo y muy completo. Identifiquen y extraigan automáticamente el tema principal del documento cargado. La conversación debe estar dirigida a todos los estudiantes y al público en general de la Academia Educativa EduConnectRuben.
-
 Directrices estrictas de locución y lenguaje:
 1. Secuencia de Apertura Obligatoria:
 Voz Masculina Primero: Es absolutamente obligatorio que el presentador MASCULINO sea el primero en hablar dando la bienvenida.
 Tema y Puntos Clave: Inmediatamente después de la bienvenida, anuncien con entusiasmo de qué van a hablar (el tema principal extraído del documento) y hagan un resumen rápido, claro y atractivo de los puntos más importantes que se analizarán.
 Identidad y Autoridad: Preséntense con total naturalidad como los locutores o presentadores expertos de este espacio. Aclaren a un el principio y al finalizar el audio que están analizando y desglosando una clase magistral íntegramente creada, diseñada y estructurada por el Profesor Rubén Condori, docente y fundador de la academia. Denle absolutamente todo el crédito inicial como el autor intelectual y guía de este material educativo.
-
-2. Estructura Pedagógica Obligatoria (Los 4 Momentos):
-A lo largo de la conversación, deben dividir, estructurar y mencionar explícitamente los cuatro momentos metodológicos: PRÁCTICA, TEORÍA, VALORACIÓN y PRODUCCIÓN. Asegúrense de guiar a los estudiantes a través de cada uno de estos momentos, anunciando claramente de forma hablada cuando pasan de un momento a otro para que el estudiante no se confunda.
-
-3. Regla CRÍTICA de Lectura (Cero palabras de acción):
-Tienen ESTRICTAMENTE PROHIBIDO decir, escribir o incluir la palabra "pausa", "silencio", "respira" o usar corchetes con indicaciones. Si lo hacen, el motor de audio lo leerá en voz alta. Para generar silencios naturales, disminuir la velocidad o simular respiraciones, utilice EXCLUSIVAMENTE puntos suspensivos (...) y comas.
-
-4. Restricción de idioma:
-Tienen terminantemente prohibido usar español de España. Cero uso de 'vosotros', 'os', 'sois', 'estáis', 'habéis', 'tenéis', 'podéis', 'vais', 'queréis', 'mirad', 'fijaos', 'haced', 'poned', 'escuchad', 'recordad', 'imaginad', 'pulsad', 'clicade', 'coged', 'chavales', 'hostia', 'guay', 'mola', 'flipa', 'curro', 'currar', 'ordenador', 'fichero', 'a por ello', 'vale'.
-
-5. Acento y Tono:
-Utilicen un español latino neutro, profesional y cálido, con un trato de 'ustedes' o 'tú'. El ritmo debe ser notoriamente pausado, tranquilo y reflexivo.
-
-6. Profundidad:
-Desglosen cada concepto paso a paso con analogías aplicadas al contexto de Santa Cruz, Bolivia.
-
-7. Cierre y Despedida:
-Al despedirse, es VITAL que vuelvan a mencionar al Profesor Rubén Condori, recordando a los estudiantes que esta sesión de audio fue posible gracias a su diseño curricular.`;
+2. Estructura Pedagógica Obligatoria (Los 4 Momentos): A lo largo de la conversación, deben dividir, estructurar y mencionar explícitamente los cuatro momentos metodológicos: PRÁCTICA, TEORÍA, VALORACIÓN y PRODUCCIÓN. Asegúrense de guiar a los estudiantes a través de cada uno de estos momentos, anunciando claramente de forma hablada cuando pasan de un momento a otro para que el estudiante no se confunda.
+3. Regla CRÍTICA de Lectura (Cero palabras de acción): Tienen ESTRICTAMENTE PROHIBIDO decir, escribir o incluir la palabra "pausa", "silencio", "respira" o usar corchetes con indicaciones. Si lo hacen, el motor de audio lo leerá en voz alta. Para generar silencios naturales, disminuir la velocidad o simular respiraciones, utilice EXCLUSIVAMENTE puntos suspensivos (...) y comas.
+4. Restricción de idioma: Tienen terminantemente prohibido usar español de España. Cero uso de 'vosotros', 'os', 'sois', 'estáis', 'habéis', 'tenéis', 'podéis', 'vais', 'queréis', 'mirad', 'fijaos', 'haced', 'poned', 'escuchad', 'recordad', 'imaginad', 'pulsad', 'clicade', 'coged', 'chavales', 'hostia', 'guay', 'mola', 'flipa', 'curro', 'currar', 'ordenador', 'fichero', 'a por ello', 'vale'.
+5. Acento y Tono: Utilicen un español latino neutro, profesional y cálido, con un trato de 'ustedes' o 'tú'. El ritmo debe ser notoriamente pausado, tranquilo y reflexivo.
+6. Profundidad: Desglosen cada concepto paso a paso con analogías aplicadas al contexto de Santa Cruz, Bolivia.
+7. Cierre y Despedida: Al despedirse, es VITAL que vuelvan a mencionar al Profesor Rubén Condori, recordando a los estudiantes que esta sesión de audio fue posible gracias a su diseño curricular.`;
 
 const PROMPT_VIDEO = `¡REGLA DE MÁXIMA PRIORIDAD!: todo el audio, la voz del narrador y los textos en pantalla deben generarse estrictamente en idioma español latino. tienes terminantemente prohibido el inglés.
-
 Actúa como mi guionista técnico audiovisual experto. Identifica automáticamente el tema central del documento adjunto y convierte la teoría en un guion largo, completo y exhaustivo para una clase magistral en video dirigida a todos los estudiantes de la Academia Educativa EduConnectRuben, sin importar su nivel de conocimientos.
-
 Reglas de oro del guion:
 Perfil del Presentador (Obligatorio): El narrador y presentador debe ser un HOMBRE (voz masculina adulta) de principio a fin.
 Idioma y Tono: Español latinoamericano (Bolivia). Prohibido el español de España. Ritmo pausado y reflexivo.
-
-Estructura Pedagógica Obligatoria (Los 4 Momentos):
-Es obligatorio que el guion se divide y mencione explícitamente los cuatro momentos metodológicos bolivianos: PRÁCTICA, TEORÍA, VALORACIÓN y PRODUCCIÓN.
-
+Estructura Pedagógica Obligatoria (Los 4 Momentos): Es obligatorio que el guion se divide y mencione explícitamente los cuatro momentos metodológicos bolivianos: PRÁCTICA, TEORÍA, VALORACIÓN y PRODUCCIÓN . 
 Secuencia de Apertura (Obligatoria):
 Paso 1: Anuncia el tema central y reanuda los puntos clave.
 Paso 2: Preséntate con naturalidad como el locutor experto encargado de la narración.
-Paso 3: Otorga el crédito absoluto: Menciona que esta clase ha sido íntegramente diseñada y estructurada por su autor intelectual, el Prof. Rubén Condori, docente y fundador de la academia.
-
+Paso 3: Otorga el crédito absoluto: Menciona que esta clase ha sido íntegramente diseñada y estructurada por su autor intelectual, el Prof. Rubén Condori , docente y fundador de la academia. (Prohibido decir "no soy el profesor", simplemente asumir el rol de locutor).
 Estructura requerida por cada escena:
-[INDICACIÓN VISUAL]: Fondo del video siempre azul cielo. El título del tema y los nombres de los 4 momentos metodológicos deben aparecer siempre en color ROJO y en tamaño grande al centro. Incluye detalles sobre código, diagramas y esquemas.
-[LOCUCIÓN DEL PRESENTADOR - VOZ MASCULINA]: Las palabras exactas que el narrador dirá. El narrador debe anunciar cada momento.
-[MARCAS DE RITMO Y TONO]: Etiquetas como [Hablar lento]. EXTREMA MODERACIÓN: Prohibido usar o repetir la palabra "pausa". Usa puntos suspensivos (...) para silencios.
-
-Cierre del Video: Finaliza reforzando que todo el contenido es autoridad del Profesor Rubén Condori y despídete con calidez boliviana.`;
+Para cada escena detallada, debes incluir obligatoriamente:
+[INDICACIÓN VISUAL]: Fondo del video siempre azul cielo . El título del tema y los nombres de los 4 momentos metodológicos (PRÁCTICA, TEORÍA,VALORACIÓN,PRODUCCIÓN) deben aparecer siempre encolor ROJOy en tamaño grande al centro para evitar confusiones.Incluye detalles sobre código,diagramas y esquemas.
+[LOCUCIÓN DEL PRESENTADOR - VOZ MASCULINA]:Las palabras exactas que el narrador dirá en español.El narrador debe anunciar cada momento metodológico antes de explicarlo (Ej:"Pasemos ahora al momento de la TEORÍA...").
+[MARCAS DE RITMO Y TONO]:Etiquetas como[Hablar lento]o[Acento cruceño/boliviano]. EXTREMA MODERACIÓN:Prohibido usar o repetir la palabra "pausa".Usa puntos suspensivos (...) para los silencios.
+Cierre del Video: Finaliza reforzando que todo el contenido técnico y curricular es autoridad delProfesor Rubén Condoriy despídete con calidez boliviana.
+¿Qué logramos con esta actualización?
+Orden Pedagógico:Al incluir la PRÁCTICA,TEORÍA,VALORACIÓN y PRODUCCIÓN,el video sigue el modelo educativo oficial.
+Claridad Visual:Al forzar los títulos de los momentos en Rojo sobre el fondo Azul Cielo,el estudiante sabe exactamente en qué parte de la lección se encuentra.
+Identidad Local:Mantiene el tono boliviano y el crédito a tu autoría.`;
 
 const PROMPT_MAPA = `Actúa como mi asistente pedagógico. Identifica el tema principal de los documentos y genera un esquema conceptual en texto estrictamente vertical (de arriba hacia abajo).
-
 Aplica las siguientes reglas:
 Jerarquía visual: Usa sangrías, viñetas y saltos de línea para simular un mapa mental vertical. El tema principal debe ser el nodo superior.
 Conceptos integrados: Debajo de cada título o subtítulo, incluye una explicación breve (máximo 1 o 2 líneas).
 Exclusividad de fuente: Limite a usar la información de los documentos cargados.`;
 
 const PROMPT_TARJETAS = `Actúa como mi asistente pedagógico experto. Identifica automáticamente el tema principal y los conceptos clave de cualquier documento cargado. Basado exclusivamente en esa información, genera EXACTAMENTE 15 TARJETAS DIDÁCTICAS para mis estudiantes del Academia educativa EduConnectRuben. Tienes prohibido generar una cantidad menor.
-
 REGLAS DE FORMATO ESTRICTAS:
 Idioma: Español latino (Bolivia). Terminantemente prohibido usar modismos de España.
-Parte delantera (Anverso - TIPO PREGUNTA OBLIGATORIO): Tienes prohibido poner solo títulos o fragmentos de código. El anverso debe formularse EXCLUSIVAMENTE como una pregunta de evaluación, corta y muy directa.
+Parte delantera (Anverso - TIPO PREGUNTA OBLIGATORIO): Tienes prohibido poner solo títulos o fragmentos de código. El anverso debe formularse EXCLUSIVAMENTE como una pregunta de evaluación, corta y muy directa (ejemplo: "¿Para qué sirve exactamente esta herramienta/concepto?" o "¿Qué función cumple esta estructura en el sistema?").
 Parte trasera (Reverso): Tienes PROHIBIDO dar definiciones de diccionario aburridas. Responde a la pregunta con una explicación directa acompañada de una analogía práctica de la vida real que cualquier persona o estudiante en Santa Cruz entendería al instante.
 Longitud (CRÍTICO): El reverso debe tener como MÁXIMO 2 o 3 oraciones cortas. Debe ser rápido de leer y fácil de memorizar.`;
 
 const PROMPT_CUESTIONARIO = `Actúa como mi asistente de evaluación técnica. Identifica automáticamente el tema principal del documento adjunto y diseña un cuestionario de EXACTAMENTE 15 PREGUNTAS para mis estudiantes del Academia educativa EduConnectRuben.
-
 REGLAS ESTRICTAS DE EVALUACIÓN:
 Idioma y tono: Español latino (Bolivia). Dirígete a los estudiantes como 'ustedes'. Terminantemente prohibido usar modismos de España.
-Enfoque Práctico (Cero memorización): Tienes prohibido hacer preguntas teóricas de diccionario. Diseña preguntas basadas en casos de estudio, depuración de errores lógicos o escenarios de la vida real que cualquier persona en Santa Cruz enfrentaría.
-Variedad Obligatoria (5 de cada tipo): Debes generar exactamente 5 preguntas de Verdadero/Falso, 5 preguntas de Opción Múltiple (una sola respuesta correcta) y 5 preguntas de Selección Múltiple (varias respuestas correctas).
-Trampas Técnicas (Distractores): Crea opciones incorrectas que no sean evidentes; Deben representar errores comunes.
+Enfoque Práctico (Cero memorización): Tienes prohibido hacer preguntas teóricas de diccionario (Ej: "¿Qué es...?"). Diseña preguntas basadas en casos de estudio, depuración de errores lógicos o escenarios de la vida real que cualquier persona en Santa Cruz enfrentaría en su día a día.
+Variedad Obligatoria (5 de cada tipo): Debes generar exactamente 5 preguntas de Verdadero/Falso, 5 preguntas de Opción Múltiple (una sola respuesta correcta) y 5 preguntas de Selección Múltiple (varias respuestas correctas) . Mezcla todos los tipos de forma aleatoria a lo largo de la evaluación.
+Trampas Técnicas (Distractores): Crea opciones incorrectas que no sean evidentes; Deben representar errores comunes, de lógica o de sintaxis que suelen cometer los estudiantes y profesionales principiantes.
 Retroalimentación: Al final de cada pregunta, incluye una justificación técnica clara detallando por qué esa es la respuesta correcta y por qué los distractores fallan.
-Formato Limpio: Entrega el cuestionario estructurado en texto normal de lectura. Marca claramente la opción correcta.`;
+Formato Limpio: Entrega el cuestionario estructurado en texto normal de lectura. Marca claramente la opción correcta. NO utilice formatos de código para exportar a plataformas virtuales (como Aiken o GIFT).`;
 
 // Plantilla Dinámica
 function generateSlidePrompt(carrera, nivel, modulo) {
